@@ -22,4 +22,9 @@ describe("boolean calculator", () => {
       "STATEMENT_WITH_INVALID_OPERATOR"
     );
   });
+  it('should throw an error with the message "STATEMENT_WITH_INVALID_OPERATOR" for "FALSE FOO"', () => {
+    expect(() => BooleanCalculator.calculate("FALSE FOO")).toThrowError(
+      "STATEMENT_WITH_INVALID_OPERATOR"
+    );
+  });
 });
