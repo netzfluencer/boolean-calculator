@@ -5,4 +5,8 @@ describe("boolean calculator", () => {
     const result = BooleanCalculator.calculate("TRUE");
     expect(result).toBe(true);
   });
+  it('should return false for "FALSE"', () => {
+    const result = BooleanCalculator.calculate("FALSE");
+    expect(result).toBe(false);
+  });
 });

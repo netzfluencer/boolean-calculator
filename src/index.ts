@@ -1,5 +1,6 @@
 export class BooleanCalculator {
   static calculate(stringifiedStatement: string) {
-    return true;
+    if (stringifiedStatement === "TRUE") return true;
+    if (stringifiedStatement === "FALSE") return false;
   }
 }
