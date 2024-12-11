@@ -16,7 +16,7 @@ export class BooleanCalculator {
       new RegExp(`NOT ((?:NOT )*(TRUE|FALSE))`)
     );
     if (negatedStatementMatch) {
-      const statement = negatedStatementMatch[1];
+      const [_, statement] = negatedStatementMatch;
       return !this.#resolveStatement(statement);
     }
 
