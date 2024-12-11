@@ -87,7 +87,7 @@ KNOWINGS
   2. "NOT NOT FALSE" => false
 - [x] knows that "NOT" can not stand alone
   1. "NOT" => forbidden
-- [] knows that "AND" is the and operator
+- [x] knows that "AND" is the and operator
   1. "AND" => &&
 - [] knows that "OR" is the or operator
   1. "OR" => ||

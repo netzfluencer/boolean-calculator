@@ -1,11 +1,20 @@
 import { BooleanCalculatorSyntaxError } from "./utils/SyntaxError";
-
-const booleanRegExp = new RegExp("(TRUE|FALSE)");
-const negationRegExp = new RegExp(`NOT ((?:NOT )*${booleanRegExp.source})`);
 export class BooleanCalculator {
   static #resolveStatement(purifiedStringifiedStatement: string): boolean {
-    const negatedStatementMatch =
-      purifiedStringifiedStatement.match(negationRegExp);
+    const andStatementMatch = purifiedStringifiedStatement.match(
+      new RegExp(`(\\S+)\\sAND\\s(\\S+)`)
+    );
+    if (andStatementMatch) {
+      const [_, firstStatement, secondStatement] = andStatementMatch;
+      return (
+        this.#resolveStatement(firstStatement) &&
+        this.#resolveStatement(secondStatement)
+      );
+    }
+
+    const negatedStatementMatch = purifiedStringifiedStatement.match(
+      new RegExp(`NOT ((?:NOT )*(TRUE|FALSE))`)
+    );
     if (negatedStatementMatch) {
       const statement = negatedStatementMatch[1];
       return !this.#resolveStatement(statement);
@@ -20,7 +29,7 @@ export class BooleanCalculator {
       .trim()
       .toUpperCase();
 
-    if (!booleanRegExp.test(purifiedStringifiedStatement)) {
+    if (!new RegExp("(TRUE|FALSE)").test(purifiedStringifiedStatement)) {
       throw new BooleanCalculatorSyntaxError("STATEMENT_WITHOUT_BOOLEAN");
     }
 
