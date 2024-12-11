@@ -9,4 +9,9 @@ describe("boolean calculator", () => {
     const result = BooleanCalculator.calculate("FALSE");
     expect(result).toBe(false);
   });
+  it('should throw an error with the message "STATEMENT_WITHOUT_BOOLEAN" for ""', () => {
+    expect(() => BooleanCalculator.calculate("")).toThrowError(
+      "STATEMENT_WITHOUT_BOOLEAN"
+    );
+  });
 });
