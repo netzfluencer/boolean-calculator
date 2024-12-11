@@ -25,11 +25,17 @@ export class BooleanCalculator {
     }
 
     if (
-      !new RegExp(`^(TRUE|FALSE|NOT)(\\s(TRUE|FALSE|NOT))*$`).test(
+      !new RegExp(`^(TRUE|FALSE|NOT|AND)(\\s(TRUE|FALSE|NOT|AND))*$`).test(
         purifiedStringifiedStatement
       )
     ) {
       throw new BooleanCalculatorSyntaxError("STATEMENT_WITH_INVALID_OPERATOR");
+    }
+
+    if (new RegExp(`(NOT (AND|OR))|NOT$`).test(purifiedStringifiedStatement)) {
+      throw new BooleanCalculatorSyntaxError(
+        "STATEMENT_WITH_STANDALONE_NOT_OPERATOR"
+      );
     }
 
     return this.#resolveStatement(purifiedStringifiedStatement);
