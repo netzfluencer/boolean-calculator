@@ -14,4 +14,8 @@ describe("boolean calculator", () => {
       "STATEMENT_WITHOUT_BOOLEAN"
     );
   });
+  it('should return true for "tRuE"', () => {
+    const result = BooleanCalculator.calculate("tRuE");
+    expect(result).toBe(true);
+  });
 });

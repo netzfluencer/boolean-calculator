@@ -66,6 +66,7 @@ DOINGS
 - calculates boolean values based on a stringified representation
 - parses all characters of a string to uppercase
   1. "tRUE" => "TRUE"
+- ignores leading and trailing spaces
 - it cleans multiple spaces to just on space
   1. "NOT TRUE" => "NOT TRUE"
 - validates string syntax
