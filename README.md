@@ -84,6 +84,7 @@ KNOWINGS
   1. "" => forbidden
 - knows that "NOT" negates the following statement
   1. "NOT FALSE" => true
+  2. "NOT NOT FALSE" => false
 - knows that "NOT" can not stand alone
   1. "NOT" => forbidden
 - knows that "AND" is the and operator
