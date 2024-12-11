@@ -63,14 +63,14 @@ npm run test:dev
 
 DOINGS
 
-- calculates boolean values based on a stringified representation
-- parses all characters of a string to uppercase
+- [] calculates boolean values based on a stringified representation
+- [x] parses all characters of a string to uppercase
   1. "tRUE" => "TRUE"
-- ignores leading and trailing spaces
+- [x] ignores leading and trailing spaces
   1. " FALSE " => false
-- it cleans multiple spaces to just on space
+- [x] it cleans multiple spaces to just on space
   1. "NOT TRUE" => "NOT TRUE"
-- validates string syntax
+- [] validates string syntax
 
 KNOWINGS
 
