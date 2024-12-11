@@ -8,23 +8,20 @@ describe("boolean calculator", () => {
     [" FALSE ", false],
     ["NOT FALSE", true],
     ["NOT NOT FALSE", false],
-  ])("should for %s return %s", (statement, expectedResult) => {
+  ])(`should for "%s" return %s`, (statement, expectedResult) => {
     const result = BooleanCalculator.calculate(statement);
     expect(result).toBe(expectedResult);
   });
-  it('should throw an error with the message "STATEMENT_WITHOUT_BOOLEAN" for ""', () => {
-    expect(() => BooleanCalculator.calculate("")).toThrowError(
-      "STATEMENT_WITHOUT_BOOLEAN"
-    );
-  });
-  it('should throw an error with the message "STATEMENT_WITH_INVALID_OPERATOR" for "FOO FALSE"', () => {
-    expect(() => BooleanCalculator.calculate("FOO FALSE")).toThrowError(
-      "STATEMENT_WITH_INVALID_OPERATOR"
-    );
-  });
-  it('should throw an error with the message "STATEMENT_WITH_INVALID_OPERATOR" for "FALSE FOO"', () => {
-    expect(() => BooleanCalculator.calculate("FALSE FOO")).toThrowError(
-      "STATEMENT_WITH_INVALID_OPERATOR"
-    );
-  });
+  it.each([
+    ["", "STATEMENT_WITHOUT_BOOLEAN"],
+    ["FOO FALSE", "STATEMENT_WITH_INVALID_OPERATOR"],
+    ["FALSE FOO", "STATEMENT_WITH_INVALID_OPERATOR"],
+  ])(
+    `should for "%s" throw an error with the message "%s"`,
+    (statement, expectedErrorMessage) => {
+      expect(() => BooleanCalculator.calculate(statement)).toThrowError(
+        expectedErrorMessage
+      );
+    }
+  );
 });
