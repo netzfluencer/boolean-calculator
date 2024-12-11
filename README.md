@@ -137,6 +137,12 @@ Input: string
 Output: boolean
 errors: SyntaxError (MISSING_PARENTHESIS, NOT_WITHOUT_REFERENCE, STRING_WITHOUT_STATEMENT, PARENTHESIS_WITHOUT_STATEMENT, OPERAND_WITHOUT_STATEMENT)
 
+### Purificator
+
+- purifies the input
+  - parse all to uppercase
+  - remove multiple spaces
+
 ### SyntaxValidator
 
 - validates the syntax
@@ -151,7 +157,8 @@ errors: SyntaxError (MISSING_PARENTHESIS, NOT_WITHOUT_REFERENCE, STRING_WITHOUT_
 
 ### Testing Strategy
 
-- validate input and output of the 3 units
-  1. SyntaxValidator
-  2. StatementExtractor
-  3. StatementCalculator
+- validate input and output of the 4 units
+  1. Purificator
+  2. SyntaxValidator
+  3. StatementExtractor
+  4. StatementCalculator
