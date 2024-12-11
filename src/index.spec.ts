@@ -17,6 +17,7 @@ describe("boolean calculator", () => {
     ["FOO FALSE", "STATEMENT_WITH_INVALID_OPERATOR"],
     ["FALSE FOO", "STATEMENT_WITH_INVALID_OPERATOR"],
     ["FALSE AND NOT", "STATEMENT_WITH_STANDALONE_NOT_OPERATOR"],
+    ["NOT AND FALSE", "STATEMENT_WITH_STANDALONE_NOT_OPERATOR"],
   ])(
     `should for "%s" throw an error with the message "%s"`,
     (statement, expectedErrorMessage) => {
