@@ -7,6 +7,11 @@ export class BooleanCalculator {
       .replaceAll(" ", "");
     if (purifiedStringifiedStatement === "TRUE") return true;
     if (purifiedStringifiedStatement === "FALSE") return false;
-    throw new BooleanCalculatorSyntaxError("STATEMENT_WITHOUT_BOOLEAN");
+
+    if (!/(TRUE|FALSE)/.test(purifiedStringifiedStatement)) {
+      throw new BooleanCalculatorSyntaxError("STATEMENT_WITHOUT_BOOLEAN");
+    }
+
+    throw new BooleanCalculatorSyntaxError("STATEMENT_WITH_INVALID_OPERATOR");
   }
 }
