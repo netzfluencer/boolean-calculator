@@ -1,7 +1,7 @@
 import { BooleanCalculatorSyntaxError } from "./utils/SyntaxError";
 
 const booleanRegExp = new RegExp("(TRUE|FALSE)");
-const negationRegExp = new RegExp(`NOT ${booleanRegExp.source}`);
+const negationRegExp = new RegExp(`NOT ((?:NOT )*${booleanRegExp.source})`);
 export class BooleanCalculator {
   static #resolveStatement(purifiedStringifiedStatement: string): boolean {
     const negatedStatementMatch =
