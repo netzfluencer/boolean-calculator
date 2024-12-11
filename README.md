@@ -74,62 +74,62 @@ DOINGS
 
 KNOWINGS
 
-- knows that "TRUE" is true
+- [x] knows that "TRUE" is true
   1. "TRUE" => true
-- knows that "FALSE" is false
+- [x] knows that "FALSE" is false
   1. "FALSE" => false
-- knows that the string has to contain at least 1x "TRUE" or "FALSE" statement
+- [x] knows that the string has to contain at least 1x "TRUE" or "FALSE" statement
   1. "FALSE" => false
-- knows that a string without "TRUE" or "FALSE" statements is invalid
+- [x] knows that a string without "TRUE" or "FALSE" statements is invalid
   1. "" => forbidden
-- knows that "NOT" negates the following statement
+- [x] knows that "NOT" negates the following statement
   1. "NOT FALSE" => true
   2. "NOT NOT FALSE" => false
-- knows that "NOT" can not stand alone
+- [x] knows that "NOT" can not stand alone
   1. "NOT" => forbidden
-- knows that "AND" is the and operator
+- [] knows that "AND" is the and operator
   1. "AND" => &&
-- knows that "OR" is the or operator
+- [] knows that "OR" is the or operator
   1. "OR" => ||
-- knows that multiple statements inside a string have to be combined by "AND" or "OR" operators
+- [] knows that multiple statements inside a string have to be combined by "AND" or "OR" operators
   1. "TRUE AND TRUE" => true
   2. "TRUE AND FALSE" => false
   3. "FALSE AND FALSE" => false
   4. "FALSE OR FALSE" => false
   5. "TRUE OR TRUE" => true
   6. "TRUE OR FALSE" => true
-- knows that "TRUE"/"FALSE" can not be followed by another statement without "AND" or "OR"
+- [] knows that "TRUE"/"FALSE" can not be followed by another statement without "AND" or "OR"
   1. "TRUE FALSE" => forbidden
   2. "FALSE TRUE" => forbidden
   3. "FALSE (NOT TRUE)" => forbidden
-- knows that 'AND'/'OR' can not be followed by 'AND/OR'
+- [] knows that 'AND'/'OR' can not be followed by 'AND/OR'
   1. 'FALSE AND AND FALSE' => forbidden
   2. 'TRUE OR AND FALSE' => forbidden
-- knows that 'AND'/'OR' are always followed by a statement or the NOT operator
+- [] knows that 'AND'/'OR' are always followed by a statement or the NOT operator
   1. "TRUE AND NOT FALSE" => true
-- knows that calculating statements through operators follows an operational priority. First NOT operations are performed. Then AND. Then OR.
+- [] knows that calculating statements through operators follows an operational priority. First NOT operations are performed. Then AND. Then OR.
   1. "TRUE OR TRUE OR TRUE AND FALSE" -> true
   2. "TRUE OR FALSE AND NOT FALSE" -> true
-- knows that each performed operation returns true or false
+- [] knows that each performed operation returns true or false
   1. "TRUE AND TRUE" => true
-- knows that parenthesis wrap statements and operations that have to be calculated first and resolve true or false. The resolved value is used for the operations next to the parenthesis
+- [] knows that parenthesis wrap statements and operations that have to be calculated first and resolve true or false. The resolved value is used for the operations next to the parenthesis
   1. "(TRUE) OR FALSE" => true
   2. "FALSE OR (TRUE)" => true
   3. "(TRUE OR TRUE OR TRUE) AND FALSE" -> false
   4. "NOT (TRUE AND TRUE)" -> false
-- knows that parenthesis wrappings start with "\(" and end with "\)"
+- [] knows that parenthesis wrappings start with "\(" and end with "\)"
   1. "(TRUE)" => true
-- knows that "\("/"\)" can not standalone
+- [] knows that "\("/"\)" can not standalone
   1. "((TRUE)" => forbidden
   2. "FALSE)" => forbidden
-- knows that parenthesis can be wrapped by parenthesis
+- [] knows that parenthesis can be wrapped by parenthesis
   1. ((TRUE)) => true
-- knows that parenthesis has to contain at least 1x "TRUE" or "FALSE" statement or another pair of parenthesis
+- [] knows that parenthesis has to contain at least 1x "TRUE" or "FALSE" statement or another pair of parenthesis
   1. "(FALSE)" => false
   2. "(((TRUE)))" => true
-- knows that empty parenthesis are invalid
+- [] knows that empty parenthesis are invalid
   1. "()" => forbidden
-- knows that "NOT" negates the resolved parenthesis
+- [] knows that "NOT" negates the resolved parenthesis
   1. "NOT (TRUE AND TRUE)" -> false
 
 ## Arch
