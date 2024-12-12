@@ -63,14 +63,14 @@ npm run test:dev
 
 DOINGS
 
-- [] calculates boolean values based on a stringified representation
+- [x] calculates boolean values based on a stringified representation
 - [x] parses all characters of a string to uppercase
   1. "tRUE" => "TRUE"
 - [x] ignores leading and trailing spaces
   1. " FALSE " => false
 - [x] it cleans multiple spaces to just on space
   1. "NOT TRUE" => "NOT TRUE"
-- [] validates string syntax
+- [x] validates string syntax
 
 KNOWINGS
 
@@ -91,7 +91,7 @@ KNOWINGS
   1. "AND" => &&
 - [x] knows that "OR" is the or operator
   1. "OR" => ||
-- [] knows that multiple statements inside a string have to be combined by "AND" or "OR" operators
+- [x] knows that multiple statements inside a string have to be combined by "AND" or "OR" operators
   1. "TRUE AND TRUE" => true
   2. "TRUE AND FALSE" => false
   3. "FALSE AND FALSE" => false
