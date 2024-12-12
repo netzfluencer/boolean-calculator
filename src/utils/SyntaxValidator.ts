@@ -19,7 +19,7 @@ export class SyntaxValidator {
         errorMessage: "STATEMENT_WITH_STANDALONE_NOT_OPERATOR",
       },
       {
-        regex: /(TRUE|FALSE)\s(TRUE|FALSE|NOT)/,
+        regex: /(TRUE|FALSE|\(|\))\s(TRUE|FALSE|NOT|\(|\))/,
         errorMessage: "STATEMENT_WITHOUT_BOOLEAN_AGGREGATOR",
       },
       {
