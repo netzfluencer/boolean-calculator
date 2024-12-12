@@ -5,6 +5,8 @@ export class BooleanCalculator {
   static calculate(stringifiedStatement: string) {
     const purifiedStringifiedStatement = stringifiedStatement
       .replace(/\s+/g, " ")
+      .replace(/\(\s+/g, "")
+      .replace(/\s+\)/g, "")
       .trim()
       .toUpperCase();
 
