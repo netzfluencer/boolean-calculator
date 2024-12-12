@@ -4,31 +4,51 @@ export class SyntaxValidator {
   static #syntaxRules = (
     [
       {
-        regex: /(TRUE|FALSE)/,
-        negated: true,
+        validationHandler: (statement) => /(TRUE|FALSE)/.test(statement),
         errorMessage: "STATEMENT_WITHOUT_BOOLEAN",
       },
       {
-        regex:
-          /^(\(*(TRUE|FALSE|NOT|AND|OR)\)*)(\s(\(*(TRUE|FALSE|NOT|AND|OR)\)*))*$/,
-        negated: true,
+        validationHandler: (statement) =>
+          /^(\(*(TRUE|FALSE|NOT|AND|OR)\)*)(\s(\(*(TRUE|FALSE|NOT|AND|OR)\)*))*$/.test(
+            statement
+          ),
         errorMessage: "STATEMENT_WITH_INVALID_OPERATOR",
       },
       {
-        regex: /(NOT\s(AND|OR))|NOT$/,
+        validationHandler: (statement) =>
+          !/(NOT\s(AND|OR))|NOT$/.test(statement),
         errorMessage: "STATEMENT_WITH_STANDALONE_NOT_OPERATOR",
       },
       {
-        regex: /(TRUE|FALSE|\(|\))\s(TRUE|FALSE|NOT|\(|\))/,
+        validationHandler: (statement) =>
+          !/(TRUE|FALSE|\(|\))\s(TRUE|FALSE|NOT|\(|\))/.test(statement),
         errorMessage: "STATEMENT_WITHOUT_BOOLEAN_AGGREGATOR",
       },
       {
-        regex: /(AND|OR)\s(AND|OR)/,
+        validationHandler: (statement) => !/(AND|OR)\s(AND|OR)/.test(statement),
         errorMessage: "BOOLEAN_AGGREGATOR_WITHOUT_BOOLEAN",
       },
       {
-        regex: /(^(AND|OR))|((AND|OR)$)/,
+        validationHandler: (statement) =>
+          !/(^(AND|OR))|((AND|OR)$)/.test(statement),
         errorMessage: "BOOLEAN_AGGREGATOR_WITHOUT_BOOLEAN",
+      },
+      {
+        validationHandler: (statement) => {
+          let openParenthesisWithoutClosingPartner = [];
+          for (let char of statement) {
+            if (char === "(") {
+              openParenthesisWithoutClosingPartner.push(char);
+            } else if (char === ")") {
+              if (openParenthesisWithoutClosingPartner.length === 0) {
+                return false;
+              }
+              openParenthesisWithoutClosingPartner.pop();
+            }
+          }
+          return openParenthesisWithoutClosingPartner.length === 0;
+        },
+        errorMessage: "PARENTHESIS_MISMATCH",
       },
     ] satisfies SyntaxRuleProps[]
   ).map((syntaxRule) => new SyntaxRule(syntaxRule));

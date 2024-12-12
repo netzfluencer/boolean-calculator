@@ -4,6 +4,7 @@ const syntaxErrorMessages = [
   "STATEMENT_WITH_STANDALONE_NOT_OPERATOR",
   "STATEMENT_WITHOUT_BOOLEAN_AGGREGATOR",
   "BOOLEAN_AGGREGATOR_WITHOUT_BOOLEAN",
+  "PARENTHESIS_MISMATCH",
 ] as const;
 export type SyntaxRuleErrorMessage = (typeof syntaxErrorMessages)[number];
 

@@ -4,25 +4,23 @@ import {
 } from "./SyntaxRuleError";
 
 export type SyntaxRuleProps = {
-  regex: RegExp;
-  negated?: boolean;
+  validationHandler: (statement: string) => boolean;
   errorMessage: SyntaxRuleErrorMessage;
 };
 export class SyntaxRule {
-  regex: RegExp;
-  errorMessage: SyntaxRuleErrorMessage;
-  negated: boolean;
+  validationHandler: SyntaxRuleProps["validationHandler"];
+  errorMessage: SyntaxRuleProps["errorMessage"];
 
-  constructor({ regex, negated = false, errorMessage }: SyntaxRuleProps) {
-    this.regex = regex;
+  constructor({ validationHandler, errorMessage }: SyntaxRuleProps) {
+    this.validationHandler = validationHandler;
     this.errorMessage = errorMessage;
-    this.negated = negated;
   }
 
   validate(purifiedStringifiedStatement: string) {
-    const result = this.regex.test(purifiedStringifiedStatement);
-    const statementIsInvalid = this.negated ? !result : result;
-    if (statementIsInvalid) {
+    const isValidStatement = this.validationHandler(
+      purifiedStringifiedStatement
+    );
+    if (!isValidStatement) {
       throw new SyntaxRuleError(this.errorMessage);
     }
     return true;
