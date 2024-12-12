@@ -3,6 +3,7 @@ const syntaxErrorMessages = [
   "STATEMENT_WITH_INVALID_OPERATOR",
   "STATEMENT_WITH_STANDALONE_NOT_OPERATOR",
   "STATEMENT_WITHOUT_BOOLEAN_AGGREGATOR",
+  "BOOLEAN_AGGREGATOR_WITHOUT_BOOLEAN",
 ] as const;
 export type SyntaxRuleErrorMessage = (typeof syntaxErrorMessages)[number];
 

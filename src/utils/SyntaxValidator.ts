@@ -21,6 +21,10 @@ export class SyntaxValidator {
         regex: /(TRUE|FALSE)\s(TRUE|FALSE|NOT)/,
         errorMessage: "STATEMENT_WITHOUT_BOOLEAN_AGGREGATOR",
       },
+      {
+        regex: /(AND|OR)\s(AND|OR)/,
+        errorMessage: "BOOLEAN_AGGREGATOR_WITHOUT_BOOLEAN",
+      },
     ] satisfies SyntaxRuleProps[]
   ).map((syntaxRule) => new SyntaxRule(syntaxRule));
   static validate(stringifiedStatement: string) {
