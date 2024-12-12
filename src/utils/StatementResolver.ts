@@ -4,14 +4,14 @@ export class StatementResolver {
     (match: RegExpMatchArray) => boolean
   >([
     [
-      /(\S+)\sOR\s(\S+)/,
+      /(.+)\sOR\s(.+)/,
       (orMatch) => {
         const [_, firstStatement, secondStatement] = orMatch;
         return this.resolve(firstStatement) || this.resolve(secondStatement);
       },
     ],
     [
-      /(\S+)\sAND\s(\S+)/,
+      /(.+)\sAND\s(.+)/,
       (andMatch) => {
         const [_, firstStatement, secondStatement] = andMatch;
         return this.resolve(firstStatement) && this.resolve(secondStatement);

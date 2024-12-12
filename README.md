@@ -102,7 +102,7 @@ KNOWINGS
   1. "TRUE FALSE" => forbidden
   2. "FALSE TRUE" => forbidden
   3. [] "FALSE (NOT TRUE)" => forbidden
-- [] knows that 'AND'/'OR' can not be followed by 'AND/OR'
+- [x] knows that 'AND'/'OR' can not be followed by 'AND/OR'
   1. 'FALSE AND AND FALSE' => forbidden
   2. 'TRUE OR AND FALSE' => forbidden
 - [] knows that 'AND'/'OR' are always followed by a statement or the NOT operator
