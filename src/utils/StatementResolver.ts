@@ -4,7 +4,7 @@ export class StatementResolver {
     (match: RegExpMatchArray) => boolean
   >([
     [
-      /(.*)\((.+)\)(.*)/,
+      /(.*)\(([^()]+)\)(.*)/,
       (parenthesisMatch) => {
         const [_, leftStatement, innerStatement, rightStatement] =
           parenthesisMatch;
@@ -40,6 +40,7 @@ export class StatementResolver {
       },
     ],
     [/^TRUE$/, () => true],
+    [/^FALSE$/, () => false],
   ]);
   static resolve(purifiedStringifiedStatement: string): boolean {
     for (const [regex, handler] of this.#semanticHandlers) {
@@ -48,6 +49,9 @@ export class StatementResolver {
         return handler(match);
       }
     }
-    return false;
+
+    throw new Error(
+      `Error: Can not resolve "${purifiedStringifiedStatement}".`
+    );
   }
 }
