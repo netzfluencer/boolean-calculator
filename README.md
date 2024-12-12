@@ -105,7 +105,7 @@ KNOWINGS
 - [x] knows that 'AND'/'OR' can not be followed by 'AND/OR'
   1. 'FALSE AND AND FALSE' => forbidden
   2. 'TRUE OR AND FALSE' => forbidden
-- [] knows that 'AND'/'OR' are always followed by a statement or the NOT operator
+- [x] knows that 'AND'/'OR' are always followed by a statement or the NOT operator
   1. "TRUE AND NOT FALSE" => true
 - [] knows that calculating statements through operators follows an operational priority. First NOT operations are performed. Then AND. Then OR.
   1. "TRUE OR TRUE OR TRUE AND FALSE" -> true
