@@ -122,7 +122,7 @@ KNOWINGS
 - [x] knows that "\("/"\)" can not standalone
   1. "((TRUE)" => forbidden
   2. "FALSE)" => forbidden
-- [] knows that parenthesis can be wrapped by parenthesis
+- [x] knows that parenthesis can be wrapped by parenthesis
   1. ((TRUE)) => true
 - [] knows that parenthesis has to contain at least 1x "TRUE" or "FALSE" statement or another pair of parenthesis
   1. "(FALSE)" => false

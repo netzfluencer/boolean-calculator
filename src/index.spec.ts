@@ -20,6 +20,7 @@ describe("boolean calculator", () => {
       ["FALSE OR", "BOOLEAN_AGGREGATOR_WITHOUT_BOOLEAN"],
       ["((TRUE)", "PARENTHESIS_MISMATCH"],
       ["FALSE)", "PARENTHESIS_MISMATCH"],
+      ["TRUE || ()", "STATEMENT_WITH_INVALID_OPERATOR"],
     ])(
       `should for "%s" throw an error with the message "%s"`,
       (statement, expectedErrorMessage) => {
