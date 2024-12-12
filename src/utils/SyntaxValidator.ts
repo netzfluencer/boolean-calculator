@@ -26,7 +26,7 @@ export class SyntaxValidator {
         errorMessage: "BOOLEAN_AGGREGATOR_WITHOUT_BOOLEAN",
       },
       {
-        regex: /^(AND|OR)/,
+        regex: /(^(AND|OR))|((AND|OR)$)/,
         errorMessage: "BOOLEAN_AGGREGATOR_WITHOUT_BOOLEAN",
       },
     ] satisfies SyntaxRuleProps[]
