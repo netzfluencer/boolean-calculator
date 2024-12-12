@@ -2,9 +2,18 @@ import { SyntaxValidator } from "./utils/SyntaxValidator";
 
 export class BooleanCalculator {
   static #resolveStatement(purifiedStringifiedStatement: string): boolean {
-    const andStatementMatch = purifiedStringifiedStatement.match(
-      new RegExp(`(\\S+)\\sAND\\s(\\S+)`)
-    );
+    const orStatementMatch =
+      purifiedStringifiedStatement.match(/(\S+)\sOR\s(\S+)/);
+    if (orStatementMatch) {
+      const [_, firstStatement, secondStatement] = orStatementMatch;
+      return (
+        this.#resolveStatement(firstStatement) ||
+        this.#resolveStatement(secondStatement)
+      );
+    }
+
+    const andStatementMatch =
+      purifiedStringifiedStatement.match(/(\S+)\sAND\s(\S+)/);
     if (andStatementMatch) {
       const [_, firstStatement, secondStatement] = andStatementMatch;
       return (
@@ -14,7 +23,7 @@ export class BooleanCalculator {
     }
 
     const negatedStatementMatch = purifiedStringifiedStatement.match(
-      new RegExp(`NOT ((?:NOT )*(TRUE|FALSE))`)
+      /NOT ((?:NOT )*(TRUE|FALSE))/
     );
     if (negatedStatementMatch) {
       const [_, statement] = negatedStatementMatch;

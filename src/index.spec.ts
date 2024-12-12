@@ -32,6 +32,7 @@ describe("boolean calculator", () => {
       ["TRUE AND TRUE", true],
       ["FALSE AND FALSE", false],
       ["FALSE OR FALSE", false],
+      ["TRUE OR FALSE", true],
     ])(`should for "%s" return %s`, (statement, expectedResult) => {
       const result = BooleanCalculator.calculate(statement);
       expect(result).toBe(expectedResult);
