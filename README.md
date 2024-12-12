@@ -71,6 +71,8 @@ DOINGS
 - [x] it cleans multiple spaces to just on space
   1. "NOT TRUE" => "NOT TRUE"
 - [x] validates string syntax
+- [] parse multiple space after ( to zero spaces
+- [] parse multiple space before ) to zero spaces
 
 KNOWINGS
 
@@ -124,12 +126,12 @@ KNOWINGS
   2. "FALSE)" => forbidden
 - [x] knows that parenthesis can be wrapped by parenthesis
   1. ((TRUE)) => true
-- [] knows that parenthesis has to contain at least 1x "TRUE" or "FALSE" statement or another pair of parenthesis
+- [x] knows that parenthesis has to contain at least 1x "TRUE" or "FALSE" statement or another pair of parenthesis
   1. "(FALSE)" => false
   2. "(((TRUE)))" => true
-- [] knows that empty parenthesis are invalid
+- [x] knows that empty parenthesis are invalid
   1. "()" => forbidden
-- [] knows that "NOT" negates the resolved parenthesis
+- [x] knows that "NOT" negates the resolved parenthesis
   1. "NOT (TRUE AND TRUE)" -> false
 
 ## Arch
