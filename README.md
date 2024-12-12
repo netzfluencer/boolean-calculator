@@ -101,7 +101,7 @@ KNOWINGS
 - [x] knows that "TRUE"/"FALSE" can not be followed by another statement without "AND" or "OR"
   1. "TRUE FALSE" => forbidden
   2. "FALSE TRUE" => forbidden
-  3. [] "FALSE (NOT TRUE)" => forbidden
+  3. [x] "FALSE (NOT TRUE)" => forbidden
 - [x] knows that 'AND'/'OR' can not be followed by 'AND/OR'
   1. 'FALSE AND AND FALSE' => forbidden
   2. 'TRUE OR AND FALSE' => forbidden
@@ -117,9 +117,9 @@ KNOWINGS
   2. "FALSE OR (TRUE)" => true
   3. "(TRUE OR TRUE OR TRUE) AND FALSE" -> false
   4. "NOT (TRUE AND TRUE)" -> false
-- [] knows that parenthesis wrappings start with "\(" and end with "\)"
+- [x] knows that parenthesis wrappings start with "\(" and end with "\)"
   1. "(TRUE)" => true
-- [] knows that "\("/"\)" can not standalone
+- [x] knows that "\("/"\)" can not standalone
   1. "((TRUE)" => forbidden
   2. "FALSE)" => forbidden
 - [] knows that parenthesis can be wrapped by parenthesis
