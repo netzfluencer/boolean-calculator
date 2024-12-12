@@ -107,10 +107,10 @@ KNOWINGS
   2. 'TRUE OR AND FALSE' => forbidden
 - [x] knows that 'AND'/'OR' are always followed by a statement or the NOT operator
   1. "TRUE AND NOT FALSE" => true
-- [] knows that calculating statements through operators follows an operational priority. First NOT operations are performed. Then AND. Then OR.
+- [x] knows that calculating statements through operators follows an operational priority. First NOT operations are performed. Then AND. Then OR.
   1. "TRUE OR TRUE OR TRUE AND FALSE" -> true
   2. "TRUE OR FALSE AND NOT FALSE" -> true
-- [] knows that each performed operation returns true or false
+- [x] knows that each performed operation returns true or false
   1. "TRUE AND TRUE" => true
 - [] knows that parenthesis wrap statements and operations that have to be calculated first and resolve true or false. The resolved value is used for the operations next to the parenthesis
   1. "(TRUE) OR FALSE" => true

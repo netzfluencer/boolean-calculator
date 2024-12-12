@@ -4,6 +4,13 @@ export class StatementResolver {
     (match: RegExpMatchArray) => boolean
   >([
     [
+      /\((.+)\)/,
+      (parenthesisMatch) => {
+        const [_, statement] = parenthesisMatch;
+        return this.resolve(statement);
+      },
+    ],
+    [
       /(.+)\sOR\s(.+)/,
       (orMatch) => {
         const [_, firstStatement, secondStatement] = orMatch;
