@@ -4,10 +4,18 @@ export class StatementResolver {
     (match: RegExpMatchArray) => boolean
   >([
     [
-      /\((.+)\)/,
+      /(.*)\((.+)\)(.*)/,
       (parenthesisMatch) => {
-        const [_, statement] = parenthesisMatch;
-        return this.resolve(statement);
+        const [_, leftStatement, innerStatement, rightStatement] =
+          parenthesisMatch;
+        const resolvedInnerStatement = this.resolve(innerStatement);
+        return this.resolve(
+          [
+            leftStatement,
+            String(resolvedInnerStatement).toUpperCase(),
+            rightStatement,
+          ].join("")
+        );
       },
     ],
     [
