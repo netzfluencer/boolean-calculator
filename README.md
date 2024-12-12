@@ -112,7 +112,7 @@ KNOWINGS
   2. "TRUE OR FALSE AND NOT FALSE" -> true
 - [x] knows that each performed operation returns true or false
   1. "TRUE AND TRUE" => true
-- [] knows that parenthesis wrap statements and operations that have to be calculated first and resolve true or false. The resolved value is used for the operations next to the parenthesis
+- [x] knows that parenthesis wrap statements and operations that have to be calculated first and resolve true or false. The resolved value is used for the operations next to the parenthesis
   1. "(TRUE) OR FALSE" => true
   2. "FALSE OR (TRUE)" => true
   3. "(TRUE OR TRUE OR TRUE) AND FALSE" -> false
