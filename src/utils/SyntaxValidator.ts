@@ -9,7 +9,7 @@ export class SyntaxValidator {
         errorMessage: "STATEMENT_WITHOUT_BOOLEAN",
       },
       {
-        regex: /^(TRUE|FALSE|NOT|AND)(\s(TRUE|FALSE|NOT|AND))*$/,
+        regex: /^(TRUE|FALSE|NOT|AND|OR)(\s(TRUE|FALSE|NOT|AND|OR))*$/,
         negated: true,
         errorMessage: "STATEMENT_WITH_INVALID_OPERATOR",
       },
