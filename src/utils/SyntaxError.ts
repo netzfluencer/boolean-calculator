@@ -3,10 +3,11 @@ const syntaxErrorMessages = [
   "STATEMENT_WITH_INVALID_OPERATOR",
   "STATEMENT_WITH_STANDALONE_NOT_OPERATOR",
 ] as const;
-type SyntaxErrorMessage = (typeof syntaxErrorMessages)[number];
+export type BooleanCalculatorSyntaxErrorMessage =
+  (typeof syntaxErrorMessages)[number];
 
 export class BooleanCalculatorSyntaxError extends Error {
-  constructor(message: SyntaxErrorMessage) {
+  constructor(message: BooleanCalculatorSyntaxErrorMessage) {
     super(message);
     this.name = "BooleanCalculatorSyntaxError";
   }
