@@ -17,6 +17,10 @@ export class SyntaxValidator {
         regex: /(NOT\s(AND|OR))|NOT$/,
         errorMessage: "STATEMENT_WITH_STANDALONE_NOT_OPERATOR",
       },
+      {
+        regex: /(TRUE|FALSE)\s(TRUE|FALSE|NOT)/,
+        errorMessage: "STATEMENT_WITHOUT_BOOLEAN_AGGREGATOR",
+      },
     ] satisfies SyntaxRuleProps[]
   ).map((syntaxRule) => new SyntaxRule(syntaxRule));
   static validate(stringifiedStatement: string) {
