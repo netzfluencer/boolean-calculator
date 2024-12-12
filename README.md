@@ -89,7 +89,7 @@ KNOWINGS
   1. "NOT" => forbidden
 - [x] knows that "AND" is the and operator
   1. "AND" => &&
-- [] knows that "OR" is the or operator
+- [x] knows that "OR" is the or operator
   1. "OR" => ||
 - [] knows that multiple statements inside a string have to be combined by "AND" or "OR" operators
   1. "TRUE AND TRUE" => true
