@@ -23,6 +23,7 @@ describe("boolean calculator", () => {
     ["NOT AND FALSE", "STATEMENT_WITH_STANDALONE_NOT_OPERATOR"],
     ["FALSE FALSE", "STATEMENT_WITHOUT_BOOLEAN_AGGREGATOR"],
     ["TRUE FALSE", "STATEMENT_WITHOUT_BOOLEAN_AGGREGATOR"],
+    ["TRUE NOT FALSE", "STATEMENT_WITHOUT_BOOLEAN_AGGREGATOR"],
   ])(
     `should for "%s" throw an error with the message "%s"`,
     (statement, expectedErrorMessage) => {
